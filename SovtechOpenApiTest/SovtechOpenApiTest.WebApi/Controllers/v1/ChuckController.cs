@@ -12,7 +12,7 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
     {
         // GET: api/<controller>
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] GetAllCategoriesQuery filter)
+        public async Task<IActionResult> Get()
         {
 
             return Ok(await Mediator.Send(new GetAllCategoriesQuery() {  }));

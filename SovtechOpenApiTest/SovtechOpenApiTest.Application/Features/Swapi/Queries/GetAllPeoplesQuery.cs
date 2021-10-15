@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
 {
     
-    public class GetAllPeopleQuery : IRequest<List<GetAllPeopleViewModel>>
+    public class GetAllPeopleQuery : IRequest<GetAllPeopleViewModel>
     {
-        
+        public int PageNumber { get; set; }
+     
     }
-    public class GetAllPeopleQueryHandler : IRequestHandler<GetAllPeopleQuery, List<GetAllPeopleViewModel>>
+    public class GetAllPeopleQueryHandler : IRequestHandler<GetAllPeopleQuery, GetAllPeopleViewModel>
     {
         private readonly IPersonRepositoryAsync _peopleRepository;
         private readonly IMapper _mapper;
@@ -25,12 +26,13 @@ namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<GetAllPeopleViewModel>> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
+        public async Task<GetAllPeopleViewModel> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
         {
-            var validFilter = _mapper.Map<GetAllPeopleParameter>(request);
-            var category = await _peopleRepository.GetReponseApiAsync();
-            var categoryViewModel = _mapper.Map<IEnumerable<GetAllPeopleViewModel>>(category);
-            return new List<GetAllPeopleViewModel>(categoryViewModel);
+            //var validFilter = _mapper.Map<GetAllPeopleParameter>(request);
+            var category = await _peopleRepository.GetSwapiReponseApiAsync(request.PageNumber);
+            
+            var categoryViewModel = _mapper.Map<GetAllPeopleViewModel>(category);
+            return  categoryViewModel;
         }
     }
 }

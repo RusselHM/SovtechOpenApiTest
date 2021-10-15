@@ -27,10 +27,19 @@ namespace SovtechOpenApiTest.Application.Features.Chuck.Queries
 
         public async Task<List<GetAllCategoriesViewModel>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
         {
+            List<GetAllCategoriesViewModel> resultList = new List<GetAllCategoriesViewModel>();
             
-            var category = await _categoryRepository.GetReponseApiAsync();
-            var categoryViewModel = _mapper.Map<IEnumerable<GetAllCategoriesViewModel>>(category);
-            return new List<GetAllCategoriesViewModel>(categoryViewModel);
+            var categories = await _categoryRepository.GetReponseApiAsync();
+            //var categoryViewModel = _mapper.Map<IEnumerable<GetAllCategoriesViewModel>>(categories); // Can't Use mapper due to time
+            foreach(var item in categories)
+            {
+                var vmItem = new GetAllCategoriesViewModel
+                {
+                    Name = item.Name
+                };
+                resultList.Add(vmItem);
+            }
+            return new List<GetAllCategoriesViewModel>(resultList);
         }
     }
 }

@@ -12,10 +12,10 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
     {
         // GET: api/<controller>
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery] GetAllPeopleQuery filter)
+        public async Task<IActionResult> Get([FromQuery] int filter)
         {
 
-            return Ok(await Mediator.Send(new GetAllPeopleQuery() { }));
+            return Ok(await Mediator.Send(new GetAllPeopleQuery() {  PageNumber = filter }));
         }
     }
 }
