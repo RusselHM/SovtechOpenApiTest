@@ -71,6 +71,36 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
 
             return categories;
         }
+        public async Task<List<CategoryDetails>> GetReponseDetailsApiAsync(string CategoryDetails)
+        {
+            var categories = new List<CategoryDetails>();
+            using (var client = new HttpClient())
+            {
+                var uri = new Uri("(https://api.chucknorris.io/jokes/random?CategoryDetails=" + CategoryDetails);
+                //CategoryDetailsVM vm = new CategoryDetailsVM();
+                var response = client.GetAsync(uri).Result;
+
+                if (!response.IsSuccessStatusCode)
+                    throw new Exception(response.ToString());
+
+                var responseContent = response.Content;
+                var responseString = responseContent.ReadAsStringAsync().Result;
+
+                dynamic itemArray = JArray.Parse(responseString) as JArray;
+                foreach (var item in itemArray)
+                {
+                    var data = new CategoryDetails
+                    {
+                        Name = item
+                    };
+                    categories.Add(data);
+                }
+
+
+            }
+
+            return categories;
+        }
         public async Task<Person> GetSwapiReponseApiAsync(int pageNumber,int pageSize)
         {
             var result = new Person();
