@@ -12,7 +12,7 @@ namespace SovtechOpenApiTest.Application.Interfaces
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<IReadOnlyList<T>> GetPagedReponseAsync(int pageNumber, int pageSize);
         Task<List<Category>> GetReponseApiAsync();
-        Task<Person> GetSwapiReponseApiAsync(int pageNumber);
+        Task<Person> GetSwapiReponseApiAsync(int pageNumber, int pageSize);
         Task<T> AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);

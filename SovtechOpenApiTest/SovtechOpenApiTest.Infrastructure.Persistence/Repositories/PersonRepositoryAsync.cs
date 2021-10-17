@@ -24,7 +24,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repositories
         public Task<bool> IsUniquePersonAsync(string name)
         {
             return _people
-                .AllAsync(p => p.results.Select(x => x.Name.ToString()).FirstOrDefault() != name);
+                .AllAsync(p => p.results.Select(x => x.name.FirstOrDefault())!= name);
         }
     }
 }

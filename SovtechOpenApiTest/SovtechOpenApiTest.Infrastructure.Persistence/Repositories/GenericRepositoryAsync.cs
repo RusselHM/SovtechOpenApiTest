@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
@@ -70,14 +71,14 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
 
             return categories;
         }
-        public async Task<Person> GetSwapiReponseApiAsync(int pageNumber)
+        public async Task<Person> GetSwapiReponseApiAsync(int pageNumber,int pageSize)
         {
             var result = new Person();
             using (var client = new HttpClient())
             {
-                var uri = new Uri("https://swapi.dev/api/people/");
+                var uri = new Uri("https://swapi.dev/api/people");
                
-                var response = client.GetAsync(uri).Result;
+                var response =  client.GetAsync(uri).Result;
 
                 if (!response.IsSuccessStatusCode)
                     throw new Exception(response.ToString());
@@ -89,6 +90,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
                 
 
             }
+            result.previous = "";
 
             return result;
         }

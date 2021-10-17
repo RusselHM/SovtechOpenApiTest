@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using SovtechOpenApiTest.Application.Features.Chuck.Queries.GetCategoryDetails;
 using SovtechOpenApiTest.Application.Interfaces.Repositories;
 using SovtechOpenApiTest.Application.Wrappers;
 using System;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SovtechOpenApiTest.Application.Features.Chuck.Queries
+namespace SovtechOpenApiTest.Application.Features.Chuck.Queries.GetAllCategories
 {
     
     public class GetAllCategoriesQuery : IRequest<List<GetAllCategoriesViewModel>>

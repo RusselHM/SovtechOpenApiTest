@@ -11,12 +11,13 @@ using System.Threading.Tasks;
 namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
 {
     
-    public class GetAllPeopleQuery : IRequest<GetAllPeopleViewModel>
+    public class GetAllPeopleQuery : IRequest<PagedResponse<GetAllPeopleViewModel>>
     {
         public int PageNumber { get; set; }
-     
+        public int PageSize { get; set; }
+
     }
-    public class GetAllPeopleQueryHandler : IRequestHandler<GetAllPeopleQuery, GetAllPeopleViewModel>
+    public class GetAllPeopleQueryHandler : IRequestHandler<GetAllPeopleQuery, PagedResponse<GetAllPeopleViewModel>>
     {
         private readonly IPersonRepositoryAsync _peopleRepository;
         private readonly IMapper _mapper;
@@ -26,13 +27,14 @@ namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
             _mapper = mapper;
         }
 
-        public async Task<GetAllPeopleViewModel> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
+        public async Task<PagedResponse<GetAllPeopleViewModel>> Handle(GetAllPeopleQuery request, CancellationToken cancellationToken)
         {
-            //var validFilter = _mapper.Map<GetAllPeopleParameter>(request);
-            var category = await _peopleRepository.GetSwapiReponseApiAsync(request.PageNumber);
+            var validFilter = _mapper.Map<GetAllPeopleParameter>(request);
+            var category = await _peopleRepository.GetSwapiReponseApiAsync(validFilter.PageNumber, validFilter.PageSize);
             
             var categoryViewModel = _mapper.Map<GetAllPeopleViewModel>(category);
-            return  categoryViewModel;
+
+            return  new PagedResponse<GetAllPeopleViewModel>(categoryViewModel, validFilter.PageNumber, validFilter.PageSize);
         }
     }
 }

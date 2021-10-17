@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SovtechOpenApiTest.Application.Features.Chuck.Queries;
+using SovtechOpenApiTest.Application.Features.Chuck.Queries.GetAllCategories;
+using SovtechOpenApiTest.Application.Features.Chuck.Queries.GetCategoryDetails;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,13 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
         {
 
             return Ok(await Mediator.Send(new GetAllCategoriesQuery() {  }));
+        }
+        // GET: api/<controller>
+        [HttpGet]
+        public async Task<IActionResult> GetDetails([FromQuery] string searchString)
+        {
+
+            return Ok(await Mediator.Send(new GetCategoryDetailsQuery() { SearchString = searchString }));
         }
     }
 }
