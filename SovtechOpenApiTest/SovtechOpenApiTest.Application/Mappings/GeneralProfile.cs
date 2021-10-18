@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SovtechOpenApiTest.Application.Features.Chuck.Queries;
 using SovtechOpenApiTest.Application.Features.Chuck.Queries.GetAllCategories;
+using SovtechOpenApiTest.Application.Features.Chuck.Queries.GetCategoryDetails;
 using SovtechOpenApiTest.Application.Features.Products.Commands.CreateProduct;
 using SovtechOpenApiTest.Application.Features.Products.Queries.GetAllProducts;
 using SovtechOpenApiTest.Application.Features.Swapi.Queries;
