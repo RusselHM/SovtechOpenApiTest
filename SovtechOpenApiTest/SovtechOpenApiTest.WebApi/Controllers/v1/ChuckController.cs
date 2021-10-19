@@ -18,12 +18,12 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
 
             return Ok(await Mediator.Send(new GetAllCategoriesQuery() {  }));
         }
-        // GET: api/<controller>
-        [HttpGet]
-        public async Task<IActionResult> GetDetails([FromQuery] string searchString)
-        {
+        // GET: api/<controller>/<action>
+        //[HttpGet]
+        //public async Task<IActionResult> GetDetails([FromQuery] string searchString)
+        //{
 
-            return Ok(await Mediator.Send(new GetCategoryDetailsQuery() { SearchString = searchString }));
-        }
+        //    return Ok(await Mediator.Send(new GetCategoryDetailsQuery() { SearchString = searchString }));
+        //}
     }
 }
