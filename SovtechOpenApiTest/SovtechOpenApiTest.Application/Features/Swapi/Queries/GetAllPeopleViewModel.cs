@@ -5,7 +5,7 @@ using System.Text;
 namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
 {
 
-    public class Results
+    public class ResultsItem
     {
         public string Name { get; set; }
         public string Height { get; set; }
@@ -30,6 +30,6 @@ namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
         //public int count { get; set; }
         //public string next { get; set; }
         //public string previous { get; set; }
-        public List<Results> Results { get; set; }
+        public List<ResultsItem> Results { get; set; }
     }
 }
