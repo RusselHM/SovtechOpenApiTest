@@ -10,6 +10,11 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
 {
     public class SearchController : BaseApiController
     {
+        /// <summary>
+        /// For searching two APIs and returning results
+        /// </summary>
+        /// <param name="searchTerm"></param>
+        /// <returns></returns>
         // GET api/<controller>/searchTerm
         [HttpGet("{searchTerm}")]
         public async Task<IActionResult> Get(string searchTerm)

@@ -6,96 +6,102 @@ namespace SovtechOpenApiTest.Domain.Entities
 {
     public class SearchInfo
     {
+        /// <summary>
+        /// Chuck Items
+        /// </summary>
         public ChuckResult Chuck{ get; set; }
+        /// <summary>
+        /// Swapi Item
+        /// </summary>
         public SwapiResult Swapi { get; set; }
     }
     public class SwapiItem
     {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string name { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string height { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string mass { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string hair_color { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string skin_color { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string eye_color { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string birth_year { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string gender { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string homeworld { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public List<string> films { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public List<string> species { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public List<string> vehicles { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public List<string> starships { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string created { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string edited { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string url { get; set; }
     }
 
     public class SwapiResult
     {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public int count { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string next { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public string previous { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from swapi
+        /// Swapi
+        /// Swapi Property
         public List<SwapiItem> results { get; set; }
     }
 
@@ -103,46 +109,46 @@ namespace SovtechOpenApiTest.Domain.Entities
     public class ChuckItem
     {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public List<string> categories { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string created_at { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string icon_url { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string id { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string updated_at { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string url { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public string value { get; set; }
     }
 
     public class ChuckResult
     {
 
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public int total { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
+        /// Returned a field from Chuck
+        /// Chuck
+        /// Chuck Property
         public List<ChuckItem> result { get; set; }
     }
 
