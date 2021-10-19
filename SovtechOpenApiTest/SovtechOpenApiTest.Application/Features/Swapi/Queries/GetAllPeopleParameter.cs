@@ -8,6 +8,6 @@ namespace SovtechOpenApiTest.Application.Features.Swapi.Queries
     
     public class GetAllPeopleParameter : RequestParameter
     {
-        public string SearchString { get; set; }
+       
     }
 }

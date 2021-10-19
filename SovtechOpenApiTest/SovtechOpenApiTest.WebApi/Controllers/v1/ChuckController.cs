@@ -26,7 +26,7 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
         /// from chuck
         /// Hlayiseka 2021-10-19
         /// returns the details
-        //GET: api/<controller>/5
+        //GET: api/<controller>/searchString
         [HttpGet("{searchString}")]
         public async Task<IActionResult> GetDetails(string searchString)
         {
