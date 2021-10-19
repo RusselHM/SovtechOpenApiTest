@@ -41,6 +41,43 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
                 .AsNoTracking()
                 .ToListAsync();
         }
+        public async Task<SearchInfo> Search(string searchString)
+        {
+            var searchRes = new SearchInfo();
+            var chuckRes = new ChuckResult();
+            var swapiRes = new SwapiResult();
+            using (var client = new HttpClient())
+            {
+                var uri = new Uri("https://api.chucknorris.io/jokes/search?query=animal" + searchString);
+                var uri2 = new Uri("https://swapi.dev/api/people/?search=" + searchString);
+                //CategoryDetailsVM vm = new CategoryDetailsVM();
+                var responseChuck = client.GetAsync(uri).Result;
+                var responseSwapi = client.GetAsync(uri2).Result;
+
+                if (!responseChuck.IsSuccessStatusCode)
+                    throw new Exception(responseChuck.ToString());
+                if (!responseSwapi.IsSuccessStatusCode)
+                    throw new Exception(responseSwapi.ToString());
+
+                var responseContentChuck = responseChuck.Content;
+                var responseStringChuck = responseContentChuck.ReadAsStringAsync().Result;
+
+                var responseContentSwapi = responseSwapi.Content;
+                var responseStringSwapi = responseContentSwapi.ReadAsStringAsync().Result;
+
+                chuckRes = JsonConvert.DeserializeObject<ChuckResult>(responseStringChuck);
+                swapiRes= JsonConvert.DeserializeObject<SwapiResult>(responseStringSwapi);
+
+                searchRes = new SearchInfo
+                {
+                    Chuck = chuckRes,
+                    Swapi = swapiRes
+                };
+
+            }
+
+            return searchRes;
+        }
         public async  Task<List<Category>> GetReponseApiAsync()
         {
             var categories = new List<Category>();
@@ -116,37 +153,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
 
             return result;
         }
-        public async Task<List<SearchInfo>> GetSearchByIdAsync(int id)
-        {
-
-            List<SearchInfo> categories = new List<SearchInfo>();
-            var client = new RestClient($"(https://api.chucknorris.io/jokes/categories)");
-            var request = new RestRequest(Method.GET);
-            IRestResponse response = await client.ExecuteAsync(request);
-            var listResponse = await client.ExecuteAsync<List<SearchInfo>>(request);
-
-            if (response.IsSuccessful)
-            {
-
-
-                foreach (var category in listResponse.Data.ToList<SearchInfo>())
-                {
-                    var categoryName = new SearchInfo
-                    {
-                        Name = category.Name
-                    };
-                    categories.Add(categoryName);
-                }
-
-
-                return categories;
-
-            }
-            else
-            {
-                return null;
-            }
-        }
+      
 
         public async Task<T> AddAsync(T entity)
         {

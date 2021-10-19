@@ -10,11 +10,11 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
 {
     public class SearchController : BaseApiController
     {
-        // GET api/<controller>/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        // GET api/<controller>/searchTerm
+        [HttpGet("{searchTerm}")]
+        public async Task<IActionResult> Get(int searchTerm)
         {
-            return Ok(await Mediator.Send(new GetInfoByIdQuery { Id = id }));
+            return Ok(await Mediator.Send(new GetInfoByIdQuery { Id = searchTerm }));
         }
     }
 }

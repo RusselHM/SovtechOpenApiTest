@@ -14,7 +14,7 @@ namespace SovtechOpenApiTest.Application.Features.Search.Queries
   
     public class GetInfoByIdQuery : IRequest<Response<SearchInfo>>
     {
-        public int Id { get; set; }
+        public string searchTerm { get; set; }
         public class GetInfoByIdQueryHandler : IRequestHandler<GetInfoByIdQuery, Response<SearchInfo>>
         {
             private readonly ISearchRepositoryAsync _searchRepository;
@@ -24,7 +24,7 @@ namespace SovtechOpenApiTest.Application.Features.Search.Queries
             }
             public async Task<Response<SearchInfo>> Handle(GetInfoByIdQuery query, CancellationToken cancellationToken)
             {
-                var Search = await _searchRepository.GetByIdAsync(query.Id);
+                var Search = await _searchRepository.Search(query.searchTerm);
                 if (Search == null) throw new ApiException($"Search Not Found.");
                 return new Response<SearchInfo>(Search);
             }

@@ -11,6 +11,7 @@ namespace SovtechOpenApiTest.Application.Interfaces
         Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<IReadOnlyList<T>> GetPagedReponseAsync(int pageNumber, int pageSize);
+        Task<SearchInfo> Search(string searchString);
         Task<List<Category>> GetReponseApiAsync();
         Task<Person> GetSwapiReponseApiAsync(int pageNumber, int pageSize);
         Task<CategoryDetails> GetReponseDetailsApiAsync(string searchString);
