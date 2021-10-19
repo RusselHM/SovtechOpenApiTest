@@ -8,6 +8,6 @@ namespace SovtechOpenApiTest.Application.Features.Chuck.Queries.GetCategoryDetai
     
     public class GetCategoryDetailsParameter : RequestParameter
     {
-
+        public string SearchString { get; set; }
     }
 }

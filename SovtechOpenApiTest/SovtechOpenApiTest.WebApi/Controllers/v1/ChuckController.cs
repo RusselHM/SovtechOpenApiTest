@@ -11,6 +11,10 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
     [ApiVersion("1.0")]
     public class ChuckController : BaseApiController
     {
+        /// gets all categories of jokes
+        /// from chuck
+        /// Hlayiseka 2021-10-19
+        /// returns list of categories
         // GET: api/<controller>
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -18,12 +22,16 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
 
             return Ok(await Mediator.Send(new GetAllCategoriesQuery() {  }));
         }
-        // GET: api/<controller>/<action>
-        //[HttpGet]
-        //public async Task<IActionResult> GetDetails([FromQuery] string searchString)
-        //{
+        /// gets details about a category
+        /// from chuck
+        /// Hlayiseka 2021-10-19
+        /// returns the details
+        //GET: api/<controller>/5
+        [HttpGet("{searchString}")]
+        public async Task<IActionResult> GetDetails(string searchString)
+        {
 
-        //    return Ok(await Mediator.Send(new GetCategoryDetailsQuery() { SearchString = searchString }));
-        //}
+            return Ok(await Mediator.Send(new GetCategoryDetailsQuery() { SearchString = searchString }));
+        }
     }
 }

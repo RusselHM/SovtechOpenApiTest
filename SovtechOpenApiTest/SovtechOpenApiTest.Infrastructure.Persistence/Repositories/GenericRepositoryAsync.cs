@@ -19,7 +19,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
     public class GenericRepositoryAsync<T> : IGenericRepositoryAsync<T> where T : class
     {
         private readonly ApplicationDbContext _dbContext;
-        private const string URL = "https://api.chucknorris.io/jokes/categories/";
+       
         //private string urlParameters = "?api_key=123";
 
         public GenericRepositoryAsync(ApplicationDbContext dbContext)
@@ -71,12 +71,12 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
 
             return categories;
         }
-        public async Task<List<CategoryDetails>> GetReponseDetailsApiAsync(string CategoryDetails)
+        public async Task<CategoryDetails> GetReponseDetailsApiAsync(string searchString)
         {
-            var categories = new List<CategoryDetails>();
+            var category = new CategoryDetails();
             using (var client = new HttpClient())
             {
-                var uri = new Uri("(https://api.chucknorris.io/jokes/random?CategoryDetails=" + CategoryDetails);
+                var uri = new Uri("https://api.chucknorris.io/jokes/random?CategoryDetails=" + searchString);
                 //CategoryDetailsVM vm = new CategoryDetailsVM();
                 var response = client.GetAsync(uri).Result;
 
@@ -86,20 +86,12 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
                 var responseContent = response.Content;
                 var responseString = responseContent.ReadAsStringAsync().Result;
 
-                dynamic itemArray = JArray.Parse(responseString) as JArray;
-                foreach (var item in itemArray)
-                {
-                    var data = new CategoryDetails
-                    {
-                        Name = item
-                    };
-                    categories.Add(data);
-                }
+                category = JsonConvert.DeserializeObject<CategoryDetails>(responseString);
 
 
             }
 
-            return categories;
+            return category;
         }
         public async Task<Person> GetSwapiReponseApiAsync(int pageNumber,int pageSize)
         {

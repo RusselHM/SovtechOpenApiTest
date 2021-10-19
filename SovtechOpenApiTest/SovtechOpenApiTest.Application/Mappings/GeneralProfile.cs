@@ -28,6 +28,7 @@ namespace SovtechOpenApiTest.Application.Mappings
             CreateMap<GetAllProductsQuery, GetAllProductsParameter>();
             CreateMap<GetAllCategoriesQuery, GetAllCategoriesParameter>();
             CreateMap<GetAllPeopleQuery, GetAllPeopleParameter>();
+            CreateMap<GetCategoryDetailsQuery, GetCategoryDetailsParameter>();
         }
     }
 }

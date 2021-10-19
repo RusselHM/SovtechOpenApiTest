@@ -4,5 +4,23 @@
         <name>SovtechOpenApiTest.WebApi</name>
     </assembly>
     <members>
+        <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.ChuckController.Get">
+            gets all categories of jokes
+            from chuck
+            Hlayiseka 2021-10-19
+            returns list of categories
+        </member>
+        <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.ChuckController.GetDetails(System.String)">
+            gets details about a category
+            from chuck
+            Hlayiseka 2021-10-19
+            returns the details
+        </member>
+        <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.SwapiController.Get(SovtechOpenApiTest.Application.Features.Swapi.Queries.GetAllPeopleParameter)">
+            gets all records in the SWAPI
+            from swapi
+            Hlayiseka 2021-10-19
+            returns a list of details
+        </member>
     </members>
 </doc>
