@@ -24,7 +24,7 @@ namespace SovtechOpenApiTest.Application.Features.Search.Queries
             }
             public async Task<Response<SearchInfo>> Handle(GetInfoByIdQuery query, CancellationToken cancellationToken)
             {
-                var search = await _searchRepository.Search(query.searchTerm);
+                var search = await _searchRepository.Search(query.SearchTerm);
                 if (search == null) throw new ApiException($"Search Not Found.");
                 return new Response<SearchInfo>(search);
             }

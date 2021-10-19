@@ -5,6 +5,7 @@ using SovtechOpenApiTest.Infrastructure.Persistence.Contexts;
 using SovtechOpenApiTest.Infrastructure.Persistence.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repositories
         public Task<bool> IsUniqueResultsAsync(string name)
         {
             return _results
-                .AllAsync(p => p.Name != name);
+                .AllAsync(p => p.Chuck.result.Select(x => x.value.FirstOrDefault()) != name);
         }
     }
 }
