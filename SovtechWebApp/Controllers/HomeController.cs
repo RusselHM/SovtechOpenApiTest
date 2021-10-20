@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace SovtechWebApp.Controllers
@@ -35,23 +36,11 @@ namespace SovtechWebApp.Controllers
         }
         public ActionResult Search(string searchTerm)
         {
+
             //var data = DB.tblStuds.ToList();
             return PartialView();
         }
-        public ActionResult GetCategories()
-        {
-            //var data = DB.tblStuds.ToList();
-            return PartialView();
-        }
-        public ActionResult GetCategoryDetails()
-        {
-            //var data = DB.tblStuds.ToList();
-            return PartialView();
-        }
-        public ActionResult Swapi()
-        {
-            //var data = DB.tblStuds.ToList();
-            return PartialView();
-        }
+      
+  
     }
 }
