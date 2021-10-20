@@ -10,10 +10,12 @@ namespace SovtechOpenApiTest.WebApi.Controllers.v1
     [ApiVersion("1.0")]
     public class SwapiController : BaseApiController
     {
-        /// gets all records in the SWAPI
-        /// from swapi
-        /// Hlayiseka 2021-10-19
-        /// returns a list of details
+        /// <summary>
+        ///Gets info about many Star wars actors
+        /// </summary>
+        /// 
+        /// <returns>Star wars crew</returns>
+        // GET api/<controller>/searchTerm
         // GET: api/<controller>
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] GetAllPeopleParameter filter)

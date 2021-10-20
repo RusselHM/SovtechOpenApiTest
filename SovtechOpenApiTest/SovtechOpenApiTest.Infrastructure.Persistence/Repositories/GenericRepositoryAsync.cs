@@ -48,7 +48,7 @@ namespace SovtechOpenApiTest.Infrastructure.Persistence.Repository
             var swapiRes = new SwapiResult();
             using (var client = new HttpClient())
             {
-                var uri = new Uri("https://api.chucknorris.io/jokes/search?query=animal" + searchString);
+                var uri = new Uri("https://api.chucknorris.io/jokes/search?query=" + searchString);
                 var uri2 = new Uri("https://swapi.dev/api/people/?search=" + searchString);
                 //CategoryDetailsVM vm = new CategoryDetailsVM();
                 var responseChuck = client.GetAsync(uri).Result;

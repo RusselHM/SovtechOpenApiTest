@@ -5,22 +5,32 @@
     </assembly>
     <members>
         <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.ChuckController.Get">
-            gets all categories of jokes
-            from chuck
-            Hlayiseka 2021-10-19
-            returns list of categories
+            <summary>
+            For getting all the chuck jokes 
+            </summary>
+            
+            <returns>Jokes</returns>
         </member>
         <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.ChuckController.GetDetails(System.String)">
-            gets details about a category
-            from chuck
-            Hlayiseka 2021-10-19
-            returns the details
+            <summary>
+            Gets details about a Chuck joke
+            </summary>
+            <param name="searchTerm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.SearchController.Get(System.String)">
+            <summary>
+            For searching two APIs and returning results
+            </summary>
+            <param name="searchTerm"></param>
+            <returns></returns>
         </member>
         <member name="M:SovtechOpenApiTest.WebApi.Controllers.v1.SwapiController.Get(SovtechOpenApiTest.Application.Features.Swapi.Queries.GetAllPeopleParameter)">
-            gets all records in the SWAPI
-            from swapi
-            Hlayiseka 2021-10-19
-            returns a list of details
+             <summary>
+            Gets info about many Star wars actors
+             </summary>
+             
+             <returns>Star wars crew</returns>
         </member>
     </members>
 </doc>
