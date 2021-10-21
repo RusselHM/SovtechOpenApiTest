@@ -2,15 +2,22 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.css" />
 
 <script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+<script type="text/javascript">
+    $("#search-btn").click(function () {
+        $.get('@Url.Action("Search","Search")', function(data) {
+    $('#search').replaceWith(data);
+    });
+  
+</script>
 
-
+searchInput
 
 <div id="chuck">
     @{Html.RenderPartial("GetCategories");}
 </div>
-@*<div id="search">
+<div id="search">
         @{Html.RenderPartial("Searching"); }
-    </div>*@
+    </div>
 <div id="swapi">
 
     @{Html.RenderPartial("SwapiDetails");};
