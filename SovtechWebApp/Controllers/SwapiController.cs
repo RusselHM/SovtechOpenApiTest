@@ -13,12 +13,14 @@ namespace SovtechWebApp.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Swapi()
+        public async Task<ActionResult> GetSwapi(int pageNumber,int pageSize)
         {
 
             try
             {
-                string apiUrl = "http://localhost:58764/api/values";
+                string sub = "?PageNumber=" + pageNumber.ToString() + "&PageSize=" + pageSize.ToString();
+
+                string apiUrl = "http://localhost:57712/api/v1.0/Swapi" + sub;
 
                 using (HttpClient client = new HttpClient())
                 {

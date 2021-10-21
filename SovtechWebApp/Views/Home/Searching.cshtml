@@ -1,0 +1,36 @@
+﻿<script src="~/scripts/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var searchValue = $('#searchInput').val();
+       
+                event.preventDefault();
+
+                $.ajax({
+                    type: "GET",
+                    url: "/Search/Search/",
+                    dataType: "json",
+                    data: { searchTerm: searchValue },
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        alert(data.msg);
+                    },
+                    error: function () {
+                        alert("Error occured!!")
+                    }
+                });
+         
+    });
+   
+</script>
+<table id="searhresult" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>

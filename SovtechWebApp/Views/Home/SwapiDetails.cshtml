@@ -1,17 +1,12 @@
-﻿<!--latest CDN for theme file-->
-<!--<input type="submit" id="btnSubmit" value="Add Student" />
-
-
-<input type="submit" id="btnDetails" value="Get Details" />
-<script type="text/javascript">
+﻿<script type="text/javascript">
     $(document).ready(function () {
         $(function () {
             $('#btnDetails').click(function (event) {
                 event.preventDefault();
 
                 $.ajax({
-                    type: "POST",
-                    url: "/Chuck/GetCategoryDetails",
+                    type: "GET",
+                    url: "/Swapi/GetSwapi/",
                     dataType: "json",
                     data: { searchTerm: "animal" },
                     contentType: 'application/json; charset=utf-8',
@@ -26,15 +21,3 @@
         });
     });
 </script>
-
-
-
-<div>
-@{Html.RenderPartial("GetCategories");}
-
-@{Html.RenderPartial("Searching");
-}
-       @{Html.RenderPartial("SwapiDetais");
-}
-</div>
-

@@ -17,7 +17,7 @@ namespace SovtechWebApp.Controllers
         {
             try
             {
-                string apiUrl = "http://localhost:58764/api/values";
+                string apiUrl = "http://localhost:57712/api/v1.0/Search/" + searchTerm;
 
                 using (HttpClient client = new HttpClient())
                 {

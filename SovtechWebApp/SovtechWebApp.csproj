@@ -6702,6 +6702,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.7" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.4.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -6715,6 +6716,10 @@
 
   <ItemGroup>
     <Folder Include="Views\PartialViews\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SovtechOpenApiTest\SovtechOpenApiTest.Application\SovtechOpenApiTest.Application.csproj" />
   </ItemGroup>
 
 </Project>

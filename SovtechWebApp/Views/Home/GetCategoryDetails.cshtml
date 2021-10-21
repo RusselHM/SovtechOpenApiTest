@@ -1,0 +1,68 @@
+﻿<script src="~/scripts/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+ 
+        var Search = {
+            stockId:  $("#searchTerm").val() 
+        }
+        var table = $('#tabledetails').DataTable({
+
+            ajax: {
+
+                type: "GET",
+                url: "/Chuck/GetCategoryDetails",
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                data:Search,
+                async: false,
+                success: function (data) {
+                    debugger;
+                    for (var i = 0; i < data.length; i++) {
+                        var row = $('<tr><td>' + data[i].id  + data[i].categories + data[i].created_at + data[i].icon_url +  data[i].updated_at +  data[i].url+ data[i].value +'</td><td>');
+                        $('#tabledetails').append(row);
+                    }
+                }
+            },
+            error: function () {
+                alert("Error occured!!")
+            },
+            columns: [
+                { data: 'id' },
+                { data: 'categories' },
+                { data: 'created_at' },
+                { data: 'icon_url' },
+                { data: 'updated_at' },
+                { data: 'url' },
+                { data: 'value' }
+
+            ]
+
+
+        })
+
+    });
+</script>
+<input type="text" class="hidden" id="searchTerm" />
+<table id="tabledetails" class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Categories</th>
+            <th>Created At</th>
+            <th>Icon Url</th>
+            <th>Updated At</th>
+            <th>Url</th>
+            <th>Value</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
