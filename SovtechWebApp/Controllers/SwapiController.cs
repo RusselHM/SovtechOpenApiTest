@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SovtechWebApp.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -13,9 +13,11 @@ namespace SovtechWebApp.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> GetSwapi(int pageNumber,int pageSize)
+        public async Task<ActionResult> GetSwapi()
         {
-
+            GetAllPeopleViewModel model = new GetAllPeopleViewModel();
+            List<Result> tempRes = new List<Result>();
+            int pageNumber = 1, pageSize = 10;
             try
             {
                 string sub = "?PageNumber=" + pageNumber.ToString() + "&PageSize=" + pageSize.ToString();
@@ -32,7 +34,9 @@ namespace SovtechWebApp.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var data = await response.Content.ReadAsStringAsync();
+                        model = Newtonsoft.Json.JsonConvert.DeserializeObject<GetAllPeopleViewModel>(data);
                         var table = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Data.DataTable>(data);
+
 
                     }
 
@@ -44,7 +48,7 @@ namespace SovtechWebApp.Controllers
 
             }
             //var data = DB.tblStuds.ToList();
-            return PartialView();
+            return Json(model);
         }
     }
 }

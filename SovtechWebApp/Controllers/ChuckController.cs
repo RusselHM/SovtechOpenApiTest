@@ -53,7 +53,7 @@ namespace SovtechWebApp.Controllers
         }
         public async Task<ActionResult> GetCategoryDetails([FromQuery] string category)
         {
-
+            GetCategoryDetailsViewModel model = new GetCategoryDetailsViewModel();
             try
             {
                 string apiUrl = "http://localhost:57712/api/v1.0/Chuck/" + category;
@@ -68,6 +68,7 @@ namespace SovtechWebApp.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var data = await response.Content.ReadAsStringAsync();
+                        model = Newtonsoft.Json.JsonConvert.DeserializeObject<GetCategoryDetailsViewModel>(data);
                         var table = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Data.DataTable>(data);
 
                     }
@@ -80,7 +81,7 @@ namespace SovtechWebApp.Controllers
 
             }
             //var data = DB.tblStuds.ToList();
-            return PartialView();
+            return Json(model);
         }
     }
 }

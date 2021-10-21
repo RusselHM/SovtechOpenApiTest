@@ -1,7 +1,4 @@
-﻿<script src="~/scripts/jquery-1.10.2.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.css" />
-
-<script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
+﻿
 
 
 <script type="text/javascript">
@@ -26,9 +23,9 @@
                 contentType: 'application/json; charset=utf-8',
                 async: false,
                 success: function (data) {
-                    debugger;
+                    
                     for (var i = 0; i < data.length; i++) {
-                        var row = $('<tr><td><a href="#"  data-toggle="modal" data-target="#categoryDetails" >' + data[i].name + '</a></td><td>');
+                        var row = $('<tr><td><a href="#"  data-toggle="modal" data-target="#categoryDetails" >' + data[i].name + '</a></td></tr>');
                         $('#codetable').append(row);
                     }
                 }

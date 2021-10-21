@@ -10,7 +10,7 @@
     $(document).ready(function () {
  
         var Search = {
-            stockId:  $("#searchTerm").val() 
+            searchItem:  $("#searchTerm").val() 
         }
         var table = $('#tabledetails').DataTable({
 
@@ -21,11 +21,10 @@
                 dataType: "json",
                 contentType: 'application/json; charset=utf-8',
                 data:Search,
-                async: false,
                 success: function (data) {
                     debugger;
                     for (var i = 0; i < data.length; i++) {
-                        var row = $('<tr><td>' + data[i].id  + data[i].categories + data[i].created_at + data[i].icon_url +  data[i].updated_at +  data[i].url+ data[i].value +'</td><td>');
+                        var row = $('<tr><td>' + data[i].id  + data[i].categories + data[i].created_at + data[i].icon_url +  data[i].updated_at +  data[i].url+ data[i].value +'</td></tr>');
                         $('#tabledetails').append(row);
                     }
                 }

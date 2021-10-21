@@ -1,40 +1,24 @@
-﻿<!--latest CDN for theme file-->
-<!--<input type="submit" id="btnSubmit" value="Add Student" />
+﻿<script src="~/scripts/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.css" />
 
-
-<input type="submit" id="btnDetails" value="Get Details" />
-<script type="text/javascript">
-    $(document).ready(function () {
-        $(function () {
-            $('#btnDetails').click(function (event) {
-                event.preventDefault();
-
-                $.ajax({
-                    type: "POST",
-                    url: "/Chuck/GetCategoryDetails",
-                    dataType: "json",
-                    data: { searchTerm: "animal" },
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        alert(data.msg);
-                    },
-                    error: function () {
-                        alert("Error occured!!")
-                    }
-                });
-            });
-        });
-    });
-</script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/ju/jq-3.6.0/dt-1.11.3/datatables.min.js"></script>
 
 
 
-<div>
-@{Html.RenderPartial("GetCategories");}
-
-@{Html.RenderPartial("Searching");
-}
-       @{Html.RenderPartial("SwapiDetais");
-}
+<div id="chuck">
+    @{Html.RenderPartial("GetCategories");}
 </div>
+@*<div id="search">
+        @{Html.RenderPartial("Searching"); }
+    </div>*@
+<div id="swapi">
+
+    @{Html.RenderPartial("SwapiDetails");};
+</div>
+
+
+
+
+
+
 
