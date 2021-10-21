@@ -51,8 +51,10 @@ namespace SovtechWebApp.Controllers
             //var data = DB.tblStuds.ToList();
             return Json(model);
         }
-        public async Task<ActionResult> GetCategoryDetails([FromQuery] string category)
+        public async Task<ActionResult> GetCategoryDetails([FromBody] string category)
         {
+            if (category == null)
+                category = "animal";
             GetCategoryDetailsViewModel model = new GetCategoryDetailsViewModel();
             try
             {

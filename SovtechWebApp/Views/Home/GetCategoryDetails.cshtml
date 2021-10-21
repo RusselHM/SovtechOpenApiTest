@@ -24,7 +24,7 @@
                 success: function (data) {
                     debugger;
                     for (var i = 0; i < data.length; i++) {
-                        var row = $('<tr><td>' + data[i].id  + data[i].categories + data[i].created_at + data[i].icon_url +  data[i].updated_at +  data[i].url+ data[i].value +'</td></tr>');
+                        var row = $('<tr><td>' + data[i].id + data[i].created_at + data[i].icon_url +  data[i].updated_at +  data[i].url+ data[i].value + '</td></tr>');
                         $('#tabledetails').append(row);
                     }
                 }
@@ -33,13 +33,12 @@
                 alert("Error occured!!")
             },
             columns: [
-                { data: 'id' },
-                { data: 'categories' },
-                { data: 'created_at' },
-                { data: 'icon_url' },
-                { data: 'updated_at' },
-                { data: 'url' },
-                { data: 'value' }
+                { data: '#' },
+                { data: 'Created At' },
+                { data: 'Icon Url' },
+                { data: 'Updated At' },
+                { data: 'Url' },
+                { data: 'Value' }
 
             ]
 

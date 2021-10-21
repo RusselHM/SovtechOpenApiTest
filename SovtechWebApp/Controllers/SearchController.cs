@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SovtechWebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace SovtechWebApp.Controllers
         }
         public async Task<ActionResult> Search(string searchTerm)
         {
+            SearchInfo model = new SearchInfo();
             try
             {
                 string apiUrl = "http://localhost:57712/api/v1.0/Search/" + searchTerm;
@@ -29,6 +31,7 @@ namespace SovtechWebApp.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var data = await response.Content.ReadAsStringAsync();
+                        model = Newtonsoft.Json.JsonConvert.DeserializeObject<SearchInfo>(data);
                         var table = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Data.DataTable>(data);
 
                     }
@@ -42,7 +45,7 @@ namespace SovtechWebApp.Controllers
             }
 
             //var data = DB.tblStuds.ToList();
-            return PartialView();
+            return Json(model);
         }
 
     }

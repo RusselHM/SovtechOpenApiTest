@@ -5,10 +5,12 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var searchValue = $('#searchInput').val();
+        var table = $('#tabledetails').DataTable({
        
-                event.preventDefault();
+       
+             
 
-                $.ajax({
+                ajax:{
                     type: "GET",
                     url: "/Search/Search/",
                     dataType: "json",
